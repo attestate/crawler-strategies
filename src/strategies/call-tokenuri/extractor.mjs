@@ -12,7 +12,7 @@ import { eth_callSchema } from "./schema.mjs";
 // Instead of querying at the block number soundxyz NFT
 // was minted, we query at a higher block number because
 // soundxyz changed their tokenURI and the previous one
-// doesn't work anymore. https://github.com/neume-network/data/issues/19
+// doesn't work anymore.
 const BLOCK_NUMBER = 15050010;
 
 export const name = "call-tokenuri";

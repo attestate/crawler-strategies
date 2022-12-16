@@ -9,7 +9,7 @@ import addFormats from "ajv-formats";
 import {
   crawlPath as crawlPathSchema,
   workerMessage,
-} from "@neume-network/schema";
+} from "@attestate/crawler-schema";
 import util from "util";
 
 import { NotFoundError } from "./errors.mjs";
@@ -24,7 +24,6 @@ export const EXTRACTOR_CODES = {
 
 const log = logger("lifecycle");
 const strategyDir = "./strategies";
-// TODO: https://github.com/neume-network/core/issues/33
 const dataDir = path.resolve(env.DATA_DIR);
 const fileNames = {
   transformer: "transformer.mjs",

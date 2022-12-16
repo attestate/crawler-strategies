@@ -1,6 +1,6 @@
 //@format
 import debug from "debug";
-const name = "neume-network-strategies";
+const name = "attestate/crawler-strategies";
 const log = (subname) => debug(`${name}:${subname}`);
 
 export default log;

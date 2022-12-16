@@ -2,7 +2,7 @@
 import test from "ava";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
-import { track } from "@neume-network/schema";
+import { track } from "@attestate/crawler-schema";
 
 import { onLine } from "../../../src/strategies/mintsongs-get-tokenuri/transformer.mjs";
 

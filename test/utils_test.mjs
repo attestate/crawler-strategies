@@ -77,7 +77,7 @@ function ipfsTest(t, ipfsUri, breakdown, nativeUriString) {
     "ipfs://QmXHfjwQ1MKmZLmzMNWc51brBTxFRWyjXKtLLysj2e5FcU",
   ],
   [
-    "https://neume.infura-ipfs.io/ipfs/bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e",
+    "https://attestate.infura-ipfs.io/ipfs/bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e",
     {
       cid: "bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e",
       path: "",
@@ -85,7 +85,7 @@ function ipfsTest(t, ipfsUri, breakdown, nativeUriString) {
     "ipfs://bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e",
   ],
   [
-    "https://neume.infura-ipfs.io/ipfs/bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e/path/to/",
+    "https://attestate.infura-ipfs.io/ipfs/bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e/path/to/",
     {
       cid: "bafybeihehacot7c5dj7y5qhwgaj7q6gdxfrjfmxcltl6wmtrjxzcn6cs7e",
       path: "/path/to/",
@@ -161,8 +161,9 @@ function ipfsTest(t, ipfsUri, breakdown, nativeUriString) {
 );
 
 test("anyIpfsToNativeIpfs should throw error on invalid IPFS URI", (t) => {
-  t.throws(() => anyIpfsToNativeIpfs("https://neume-ipfs.network"), {
-    message: "Couldn't convert https://neume-ipfs.network to native IPFS URI",
+  t.throws(() => anyIpfsToNativeIpfs("https://attestate-ipfs.network"), {
+    message:
+      "Couldn't convert https://attestate-ipfs.network to native IPFS URI",
   });
 });
 

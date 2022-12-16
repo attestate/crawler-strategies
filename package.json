@@ -1,34 +1,27 @@
 {
-  "name": "neume-network-strategies",
+  "name": "@attestate/crawler-strategies",
   "version": "0.0.1",
   "description": "",
   "main": "./src/index.mjs",
   "scripts": {
-    "test": "DEBUG=neume-network* ava --verbose --node-arguments=\"-r dotenv/config\"",
+    "test": "DEBUG=attestate* ava --verbose --node-arguments=\"-r dotenv/config\"",
     "prepare": "husky install",
     "prettier": "prettier --write",
     "eslint": "eslint . --ext mjs --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neume-network/strategies.git"
+    "url": "git+https://github.com/attestate/crawler-strategies.git"
   },
-  "keywords": [
-    "data",
-    "music",
-    "web3",
-    "decentralized",
-    "tokens",
-    "nfts"
-  ],
+  "keywords": ["data", "music", "web3", "decentralized", "tokens", "nfts"],
   "author": "Tim Daubenschütz <tim@daubenschuetz.de> (https://timdaub.github.io/)",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/neume-network/strategies/issues"
+    "url": "https://github.com/attestate/crawler-strategies/issues"
   },
-  "homepage": "https://github.com/neume-network/strategies#readme",
+  "homepage": "https://github.com/attestate/crawler-strategies#readme",
   "devDependencies": {
-    "@neume-network/extraction-worker": "0.7.1",
+    "@attestate/worker": "0.7.1",
     "ajv": "8.11.0",
     "ajv-formats": "2.1.1",
     "ava": "4.2.0",
@@ -41,13 +34,10 @@
     "prettier": "2.6.2"
   },
   "lint-staged": {
-    "*.{mjs,js,css}": [
-      "npm run prettier",
-      "npm run eslint"
-    ]
+    "*.{mjs,js,css}": ["npm run prettier", "npm run eslint"]
   },
   "dependencies": {
-    "@neume-network/schema": "0.8.1",
+    "@attestate/crawler-schema": "0.8.1",
     "lodash.uniqwith": "4.5.0",
     "sha3": "2.1.4"
   },
@@ -55,9 +45,7 @@
     "eth-fun": ">=0.9.1"
   },
   "ava": {
-    "files": [
-      "**/*_test.mjs"
-    ],
+    "files": ["**/*_test.mjs"],
     "timeout": "30s",
     "environmentVariables": {
       "IPFS_HTTPS_GATEWAY": "https://cloudflare-ipfs.com/ipfs/",

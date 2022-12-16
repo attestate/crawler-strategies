@@ -30,13 +30,11 @@ export function init(start = 1) {
 }
 
 export function update(message) {
-  // TODO: There's a bug in neume-network/extraction-worker that doesn't
-  // allow us to get back the error: https://github.com/neume-network/extraction-worker/issues/34
+  // TODO: There's a bug in @attestate/worker that doesn't allow us to get back
+  // errors.
   if (message.error) {
-    // handle the error
     log(message.error);
 
-    // continue the crawling if possible (in this case, we are not able to retrieve the next page)
     return {
       write: null,
       messages: [],

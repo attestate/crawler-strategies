@@ -1,3 +1,3 @@
 // @format
-import { run } from "@neume-network/extraction-worker";
+import { run } from "@attestate/worker";
 run();

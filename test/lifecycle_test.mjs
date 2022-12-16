@@ -28,17 +28,13 @@ const mockMessage = {
   type: "https",
   version: "0.0.1",
   options: {
-    url: "https://neume.network",
+    url: "https://attestate.com",
     method: "GET",
   },
 };
 
 test("if function transform gracefully returns when sourceFile doesn't exist", async (t) => {
-  const strategy = {
-    module: {
-      name: "test-strategy",
-    },
-  };
+  const strategy = { module: { name: "test-strategy" } };
   const sourcePath = "doesn't exist";
   const result = await transform(strategy, sourcePath);
   t.falsy(result);
