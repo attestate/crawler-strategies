@@ -1,17 +1,16 @@
-const version = "0.0.1";
-export const name = "get-xkcd";
-import logger from "../../logger.mjs";
-import { schema } from "./schema.mjs";
 import Ajv from "ajv";
 
+import logger from "../../logger.mjs";
+import { schema } from "./schema.mjs";
+
+const version = "0.0.1";
+export const name = "get-xkcd";
 const log = logger(name);
+const MAX_PAGE = 19;
+const templateURI = (num) => `https://xkcd.com/${num}/info.0.json`;
 
 const validator = new Ajv();
 const validate = validator.compile(schema);
-
-const MAX_PAGE = 19;
-
-const templateURI = (num) => `https://xkcd.com/${num}/info.0.json`;
 
 export function init(start = 1) {
   return {
@@ -30,8 +29,8 @@ export function init(start = 1) {
 }
 
 export function update(message) {
-  // TODO: There's a bug in @attestate/worker that doesn't allow us to get back
-  // errors.
+  // TODO: There's a bug in @neume-network/extraction-worker that doesn't allow
+  // us to get back errors.
   if (message.error) {
     log(message.error);
 
@@ -45,8 +44,8 @@ export function update(message) {
   if (!validate(data)) {
     log(validate.errors);
     return {
-      type: "exit",
-      version: "1.0",
+      write: null,
+      messages: [{ type: "exit" }],
     };
   }
 
@@ -55,8 +54,8 @@ export function update(message) {
   const { num } = message.results;
   if (num >= MAX_PAGE) {
     return {
-      type: "exit",
-      version: "1.0",
+      write: null,
+      messages: [{ type: "exit" }],
     };
   }
 
