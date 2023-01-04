@@ -16,21 +16,7 @@ export function onError(error) {
   throw error;
 }
 
-function validate(contracts) {
-  Object.keys(contracts).forEach((contract) => {
-    if (contract !== contract.toLowerCase()) {
-      throw new Error("Contract address must be lower key");
-    }
-  });
-}
-
-const transferEventSelector =
-  "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";
-const emptyB32 =
-  "0x0000000000000000000000000000000000000000000000000000000000000000";
-
-export function onLine(line, contracts) {
-  validate(contracts);
+export function onLine(line, topic0, topic1) {
   let logs;
   try {
     logs = parseJSON(line, 100);
@@ -39,34 +25,13 @@ export function onLine(line, contracts) {
     return;
   }
 
-  logs = logs
-    .filter((log) => {
-      return (
-        log.topics[0] === transferEventSelector &&
-        log.topics[1] === emptyB32 &&
-        Object.keys(contracts).includes(log.address)
-      );
-    })
-    .map((log) => {
-      return {
-        platform: {
-          ...contracts[log.address],
-        },
-        erc721: {
-          createdAt: parseInt(log.blockNumber, 16),
-          address: log.address,
-          tokens: [
-            {
-              minting: {
-                transactionHash: log.transactionHash,
-              },
-              id: BigInt(log.topics[3]).toString(10),
-            },
-          ],
-        },
-      };
-    });
-
+  let filter = true;
+  if (topic0) {
+    filter = (log) => log.topics[0] === topic0;
+  } else if (topic0 && topic1) {
+    filter = (log) => log.topics[0] === topic0 && log.topics[1] === topic1;
+  }
+  logs = logs.filter(filter);
   if (logs.length) {
     return JSON.stringify(logs);
   } else {
