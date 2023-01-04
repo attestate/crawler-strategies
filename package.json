@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/attestate/crawler-strategies#readme",
   "devDependencies": {
-    "@attestate/worker": "0.7.1",
+    "@neume-network/extraction-worker": "0.7.1",
     "ajv": "8.11.0",
     "ajv-formats": "2.1.1",
     "ava": "4.2.0",
@@ -34,10 +34,13 @@
     "prettier": "2.6.2"
   },
   "lint-staged": {
-    "*.{mjs,js,css}": ["npm run prettier", "npm run eslint"]
+    "*.{mjs,js,css}": [
+      "npm run prettier",
+      "npm run eslint"
+    ]
   },
   "dependencies": {
-    "@attestate/crawler-schema": "0.8.1",
+    "@neume-network/schema": "0.8.1",
     "lodash.uniqwith": "4.5.0",
     "sha3": "2.1.4"
   },

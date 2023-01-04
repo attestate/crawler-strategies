@@ -9,7 +9,7 @@ import addFormats from "ajv-formats";
 import {
   crawlPath as crawlPathSchema,
   workerMessage,
-} from "@attestate/crawler-schema";
+} from "@neume-network/schema";
 import util from "util";
 
 import { NotFoundError } from "./errors.mjs";

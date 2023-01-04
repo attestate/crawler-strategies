@@ -3,7 +3,7 @@ import test from "ava";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 
-import { track } from "@attestate/crawler-schema";
+import { track } from "@neume-network/schema";
 
 import { onLine } from "../../../src/strategies/zora-get-tokenuri/transformer.mjs";
 
@@ -52,9 +52,9 @@ test("zora transformer", (t) => {
   const valid = validate(data);
   t.is(validate.errors.length, 1);
   t.is(data.erc721.tokenURI, payload.metadata.tokenURI);
-  // NOTE: zora-get-tokenuri implements @attestate/crawler-schema only
-  // partially at this point, so we can't expect it to pass validation.
-  // Instead, we're expecting errors to be thrown.
+  // NOTE: zora-get-tokenuri implements @neume-network/schema only partially at
+  // this point, so we can't expect it to pass validation. Instead, we're
+  // expecting errors to be thrown.
   t.truthy(validate.errors[0].params.missingProperty);
 });
 
