@@ -1,3 +1,4 @@
+# ⚠️ 2022-01-22: deprecated. Strategies will be continued as individual npm modules. For more details visit: https://github.com/attestate/crawler
 # `@attestate/crawler-strategies`
 
 This repository is a submodule of `@attestate/crawler` and houses all
